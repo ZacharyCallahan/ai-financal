@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
         if (error.code === "P2002") {
             return new NextResponse(
                 JSON.stringify({
-                    status: "error",
+                    success: false,
                     message: "A user with that email already exists.",
                 }),
                 { status: 400 }
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
         // Handle other types of errors
         return new NextResponse(
             JSON.stringify({
-                status: "error",
+                success: false,
                 message: "An error occurred while processing your request.",
             }),
             { status: 500 }
